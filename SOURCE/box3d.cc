@@ -1,4 +1,3 @@
-
 #include <cmath>
 #include <iostream>
 #include <string>
@@ -564,7 +563,7 @@ inline double kinetic_condensate(double *field)
     }
   }
   ret /= VOL;
-  ret += G * fs;
+  ret -= 1.0;
   return ret;
 }
 
