@@ -9,7 +9,7 @@ We work on a hyper-cubic lattice ($D=3, 4$ dimensions) with $N=L^3$ sites. We st
 
 \begin{equation}
 S = \sum_{n=1}^N \left[ \frac{1}{2} B_4 \left( \Box \phi_n \right)^2 + \frac{1}{2}B_2 \sum_{\mu=1}^D
-  \left( \partial_\mu \phi_n \right) \left( \partial_\mu \phi_n \right) + \frac{1}{4}\lambda \phi_n^4 \right]
+  \left( \partial_\mu \phi_n \right) \left( \partial_\mu \phi_n \right) + \frac{1}{2} r \phi_n^2 + \frac{1}{4}\lambda \phi_n^4 \right]
 \end{equation}
 
 \noindent The field index $n$ is an integer valued array with $D$ components, and the discretized derivatives are defined as follows
@@ -25,9 +25,13 @@ S = \sum_{n=1}^N \left[ \frac{1}{2} B_4 \left( \Box \phi_n \right)^2 + \frac{1}{
 \noindent It is understood that all introduced variables and operators are dimensionless versions of their continuum counterparts, which are obtained by multiplying them by appropriate
 powers of the lattice spacing $a$, which does not appear explicitely. The $B_2$ parameter is dimensionless, while the dimensionful counterpart of the $B_4$ parameter has the dimensions of $a^{2}$, or an inverse square mass.\\
 
-\noindent This model does not have an explicit quadratic term in the field.\\
+\noindent We will also consider the interaction term with an external current:
 
-\noindent The Euclidean path integral involves the partition function
+\begin{equation}
+S_J = \sum_{n=1}^N J_n \phi_n 
+\end{equation}
+
+\noindent where the current is in general not uniform. The Euclidean path integral involves the partition function
 
 \begin{equation}
 Z = \int [d\phi] \exp \left( -S[\phi] \right)
