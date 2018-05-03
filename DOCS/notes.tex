@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage{amsmath,latexsym}
+
+\begin{document}
+
+\section{Introduction}
+
+We work on a hyper-cubic lattice ($D=3, 4$ dimensions) with $N=L^3$ sites. We study the Euclidean scalar model defined by the following action
+
+\begin{equation}
+S = \sum_{n=1}^N \left[ \frac{1}{2} B_4 \left( \Box \phi_n \right)^2 + \frac{1}{2}B_2 \sum_{\mu=1}^D
+  \left( \partial_\mu \phi_n \right) \left( \partial_\mu \phi_n \right) + \frac{1}{4}\lambda \phi_n^4 \right]
+\end{equation}
+
+\noindent The field index $n$ is an integer valued array with $D$ components, and the discretized derivatives are defined as follows
+
+\begin{equation}
+\partial_\mu \phi_n \equiv \phi_{n+\mu} - \phi_n
+\end{equation}
+
+\begin{equation}
+\Box \phi_n \equiv \sum_\mu \left( \phi_{n+\mu} + \phi_{n-\mu} - 2\phi_n \right)
+\end{equation}
+
+\noindent It is understood that all introduced variables and operators are dimensionless versions of their continuum counterparts, which are obtained by multiplying them by appropriate
+powers of the lattice spacing $a$, which does not appear explicitely. The $B_2$ parameter is dimensionless, while the dimensionful counterpart of the $B_4$ parameter has the dimensions of $a^{2}$, or an inverse square mass.\\
+
+\noindent This model does not have an explicit quadratic term in the field.\\
+
+\noindent The Euclidean path integral involves the partition function
+
+\begin{equation}
+Z = \int [d\phi] \exp \left( -S[\phi] \right)
+\end{equation}
+
+\noindent where the measure is defined by
+
+\begin{equation}
+[d\phi] \equiv \prod_{n=1}^N d\phi_n
+\end{equation}
+
+\noindent The ground state expectation values of operators are then defined as
+
+\begin{equation}
+\langle A(\phi) \rangle \equiv \frac{1}{Z} \int [d\phi] A(\phi) \exp\left( -S[\phi]\right)
+\end{equation}
+
+\noindent We are interested in studying the case
+
+\begin{equation}
+B_4 > 0, B_2 = -1
+\end{equation}
+
+\noindent which is supposed to give rise to a non-uniform field configuration for the ground state.
+In particular, we are interested in the so-called kinetic condensate
+
+\begin{equation}
+K(B_4, B_2, \lambda) \equiv \frac{1}{N}\sum_{n, \mu} \langle (\partial_\mu \phi_n)(\partial_\mu \phi_n) \rangle
+\end{equation}
+
+\noindent or, rather, the quantity obtained by subtracting vacuum fluctuations of the field:
+
+\begin{equation}
+K_S(B_4, B_2, \lambda) \equiv K(B_4, B_2, \lambda) - K(0, 1, 0)
+\end{equation}
+
+\section{Vacuum fluctuations}
+
+In order to evaluate the vacuum field fluctuations of the field on the lattice, we consider the following partition function
+
+\begin{equation}
+Z(\alpha) \equiv \int [d\phi] \exp(-\alpha S_0[\phi])
+\end{equation}
+
+\noindent $S_0$ being the standard kinetic term of the action, implying that
+
+\begin{equation}
+K(0,1,0) = \frac{2}{N} \langle S_0 \rangle
+\end{equation}
+
+\noindent where the expectation value is calculated with $S=S_0$ (i.e. $B_4=0, B_2=1, \lambda=0$) at $\alpha=1$. We have that
+
+\begin{equation}
+\langle S_0 \rangle = -\frac{\partial}{\partial \alpha} \ln Z(\alpha) \Bigr|_{\alpha = 1}
+\end{equation}
+
+\noindent Since $S_0$ is quadratic in the fields, we can define
+
+\begin{equation}
+\chi_n^2 \equiv \alpha \phi_n^2
+\end{equation}
+
+\noindent which gives
+
+\begin{equation}
+[d\phi] = \alpha^{-N/2} [d\chi], Z(\alpha) = \alpha^{-N/2} Z(1)
+\end{equation}
+
+\noindent from which it follows that
+
+\begin{equation}
+K(0,1,0) = 1
+\end{equation}
+
+\begin{equation}
+K_S(B_4, B_2, \lambda) = K(B_4, B_2, \lambda) - 1
+\end{equation}
+
+\section{Simulation}
+
+\noindent We are employing Monte Carlo to evaluate path integral averages as averages over a set of configurations
+generated with the $\exp(-S)$ distribution. We use the Hybrid Monte Carlo (HMC) approach.\\
+
+\noindent As a check for the algoritghm, we use the Creutz criterion, i.e. we check that for the variations of the HMC Hamiltonian
+the following holds
+
+\begin{equation}
+\langle \exp \left( - \delta H \right) \rangle = 1
+\end{equation}
+
+\end{document}

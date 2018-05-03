@@ -1,0 +1,1 @@
+awk '{print NR,$0}' B3D_K_L24_T24_B2_-1.000_B4_1.000_G0.000_H0.100_J0.000.dat\    > mela.dat
