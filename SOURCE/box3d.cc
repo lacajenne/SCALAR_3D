@@ -214,14 +214,22 @@ int main( int argc, char *argv[])
     status = REJECT;
     if( dE < 0.0 || uniform_rg() <= exp(-dE) ) status = ACCEPT;
 
-    if(acc_count < nequil){
-      sprintf(logbuf, "%.16f", exp(-dE));
-      sprintf(logfile, "B3D_EH_L%d_T%d_B2_%.3f_B4_%.3f_G%.3f_H%.3f_J%.3f.dat ", L, T, B2, B4, G, H, J);
-      Log(logbuf, logfile);
-      
+    if(acc_count < nequil) {
       sprintf(logbuf, "%.16f", 1.0*status);
-      sprintf(logfile, "B3D_A_L%d_T%d_B2_%.3f_B4_%.3f_G%.3f_H%.3f_J%.3f.dat ", L, T, B2, B4, G, H, J);
+      sprintf(logfile, "B3D_AT_L%d_T%d_B2_%.3f_B4_%.3f_G%.3f_H%.3f_J%.3f.dat ", L, T, B2, B4, G, H, J);
       Log(logbuf, logfile);
+    }
+
+    if(acc_count > nequil) {
+      if(acc_count % (nsave * 5) == 0) {
+	sprintf(logbuf, "%.16f", 1.0*status);
+	sprintf(logfile, "B3D_AR_L%d_T%d_B2_%.3f_B4_%.3f_G%.3f_H%.3f_J%.3f.dat ", L, T, B2, B4, G, H, J);
+	Log(logbuf, logfile);
+
+	sprintf(logbuf, "%.16f", exp(-dE));
+	sprintf(logfile, "B3D_EH_L%d_T%d_B2_%.3f_B4_%.3f_G%.3f_H%.3f_J%.3f.dat ", L, T, B2, B4, G, H, J);
+	Log(logbuf, logfile);
+      }
     }
 
     // it the configuration is accepted, update the field
