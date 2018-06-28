@@ -122,4 +122,52 @@ the following holds
 \langle \exp \left( - \delta H \right) \rangle = 1
 \end{equation}
 
+
+\section{Analytic considerations}
+
+Let us consider the following action (in a continuum description):
+
+\begin{equation}
+S[\phi]= \int d^dx\left ( \frac{1}{2}\phi\; \Omega(-\Box)\;\phi+\frac{u}{4!}\phi^4\right)
+\end{equation}
+with
+\begin{equation}
+\Omega(-\Box) = \Box+\frac{\Box^2}{2 M^2}
+\end{equation}
+in particular
+\begin{equation}
+\Omega(p^2) = -p^2+\frac{(p^2)^2}{2 M^2}
+\end{equation}
+Insert the variational ansatz $\phi(x) = A\sin (p_\mu x^\mu+\alpha)$ so that $\Box\phi(x) = -p^2 \phi(x)$ 
+and $\Omega(-\Box)\phi= \Omega(p^2) \phi(x)$, so that 
+\begin{equation}
+S[\phi]=\int d^d x \left ( \frac{A^2}{2}\Omega(p^2)\sin^2(p_\mu x^\mu+\alpha)+\frac{u}{4!}A^4 \sin^4(p_\mu x^\mu+\alpha)\right )
+\end{equation}
+If $p_\mu = p \delta_{\mu 1}$ we have 
+\begin{equation}
+S[\phi]={\cal V}\left ( \frac{A^2}{2}\Omega(p^2) \int_{-\infty}^{+\infty}dx^1\sin^2(p x^1 +\alpha)+
+\frac{u}{4!}\int_{-\infty}^{+\infty}dx^1\sin^4(p x^1 +\alpha) \right )
+\end{equation}
+where ${\cal V} = \int dx^2...dx^d$. Therefore we can write
+\begin{equation}
+\frac{S[\phi]}{{\cal V}}= \frac{1}{4}A^2\Omega(p^2)+\frac{3}{8}\frac{u}{4!} A^4
+\end{equation}
+We look for a minimum as a function of $p$ and obtain
+
+\begin{equation}
+\frac{d}{d p^2} \left [-p^2+\frac{(p^2)^2}{2M^2} \right ]=-1+\frac{p^2}{M^2}=0
+\end{equation}
+so that $p_\mu p^\mu= M^2$ therefore $p_\mu= n_\mu M$ with $n_\mu n^\mu = 1$. Minimizing over $A$ leads instead to $A=\frac{2}{\sqrt{u}}M$
+so that the variational solution is
+
+\begin{equation}
+\phi(x) = \frac{2}{\sqrt{u}}M\sin(M n_\mu x^\mu+\alpha)
+\end{equation}
+
+with $n\in  S^{d-1}$ and $\alpha\in [0,2\pi)$.
+
+
+
+
+
 \end{document}
